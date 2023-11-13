@@ -1,4 +1,3 @@
-// Primero, define la función fetchApiPromise
 async function fetchApiPromise(url) {
     const response = await fetch(url);
     if (!response.ok) {
@@ -9,7 +8,6 @@ async function fetchApiPromise(url) {
     return data; 
 }
 
-// Luego, el resto de tu código
 async function main() {
     try {
         const data = await fetchApiPromise("https://mindicador.cl/api/");
@@ -25,7 +23,6 @@ async function main() {
             try {
                 const data = await fetchApiPromise("https://mindicador.cl/api/");
         
-                // Verifica que la respuesta tenga la estructura esperada
                 if (!data || !data.uf || !data.ivp || !data.dolar || !data.euro) {
                     throw new Error("La respuesta de la API no tiene la estructura esperada.");
                 }
@@ -33,7 +30,6 @@ async function main() {
                 const currencies = {
                     "EUR": data.euro.valor,
                     "USD": data.dolar.valor,
-                    // Agrega más monedas según sea necesario
                 };
         
                 const cantidadUnoValue = parseFloat(cantidadUno.value);
@@ -49,8 +45,6 @@ async function main() {
                     rateDiv.textContent = "Selecciona una moneda de destino.";
                     return;
                 }
-        
-                // Utiliza directamente el valor de la moneda seleccionada
                 const tasaCambio = currencies[monedaDestinoSeleccionada];
                 const resultado = cantidadUnoValue / tasaCambio;
         
@@ -74,11 +68,9 @@ function mapMonedaSeleccionada(valorSeleccionado) {
             return "dolar";
         case "Euro":
             return "euro";
-        // Agrega más casos según sea necesario
         default:
             return "";
     }
 }
 
-// Finalmente, llama a la función main
 main();
