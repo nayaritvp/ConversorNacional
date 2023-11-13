@@ -9,7 +9,6 @@
 * {
   box-sizing: border-box;
 }
-
 body {
   background-color: rgb(230, 218, 218);
   display: flex;
@@ -40,8 +39,7 @@ p {
   
 }
 
-.boton {
-  
+.boton {  
   color: white;
   background-color: var(--color);
   cursor: pointer;

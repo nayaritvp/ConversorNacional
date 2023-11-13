@@ -74,3 +74,29 @@ function mapMonedaSeleccionada(valorSeleccionado) {
 }
 
 main();
+
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['2023-11-02', '2023-11-03', '2023-11-04', '2023-11-05', '2023-11-06', '2023-11-07', '2023-11-08', '2023-11-09', '2023-11-10', '2023-11-11'],
+    datasets: [{
+      label: 'Historial Valor de la Moneda',
+      data: [887.16, 878.51, 882.65, 882.65, 881.80, 886.32, 898.87, 911.25, 909.18, 914.70],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        stepSize: 10,
+        min: 850,
+        max: 1000,
+        maintainAspectRatio: false,
+        responsive: true,
+      }
+    }
+  }
+});
